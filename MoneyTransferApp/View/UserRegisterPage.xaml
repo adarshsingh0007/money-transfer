@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MoneyTransferApp.View.UserRegisterPage"
+              NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White"
+             Title="UserRegisterPage">
+    
+    <StackLayout 
+    HeightRequest="750" 
+    WidthRequest="300">
+
+        <Label
+     Text="{Binding RegisterHeaderText}" 
+     TextColor="#1e90ff" 
+     FontSize="32" 
+     FontAttributes="Bold" 
+     FontFamily="arvana" 
+     Margin="5"
+/>
+
+
+        <StackLayout 
+    Margin="6"
+    Spacing="10"
+    Orientation="Vertical">
+
+            <Label 
+     Text="{Binding NameLabelText}" 
+     TextColor="Black" 
+     FontSize="15" 
+     FontAttributes="Bold" 
+     FontFamily="arvana"
+  />
+
+            <Frame 
+     BackgroundColor="LightGray" 
+     BorderColor="LightGray"
+     CornerRadius="20"
+     WidthRequest="300"
+     HeightRequest="45"
+     Padding="-10">
+
+                <Entry 
+    x:Name="NameEntry"
+    Text="{Binding Name}"
+    Placeholder="{Binding NamePlaceholder}"     
+    FontAttributes="Bold"
+    PlaceholderColor="Gray"
+    TextColor="Black"
+    HorizontalTextAlignment="Start" 
+    VerticalOptions="CenterAndExpand" 
+    WidthRequest="235" 
+    FontSize="18"
+
+   />
+            </Frame>
+            <Label 
+       Text="{Binding NameError}" 
+       TextColor="Red" 
+       IsVisible="{Binding IsNameErrorVisible}" />
+        </StackLayout>
+
+
+        <StackLayout 
+      Orientation="Vertical" 
+      Spacing="10"
+      Margin="5">
+
+            <Label 
+      Text="{Binding EmailLabelText}"
+      TextColor="Black"
+      FontAttributes="Bold" 
+      FontSize="15" 
+      FontFamily="arvana"
+   />
+
+            <Frame      
+      BackgroundColor="LightGray" 
+      BorderColor="LightGray"
+      CornerRadius="20" 
+      WidthRequest="300"
+      HeightRequest="45" 
+      Padding="-10" 
+      HorizontalOptions="CenterAndExpand" >
+
+                <Entry  
+      Text="{Binding Email}"
+      Placeholder="{Binding EmailPlaceholder}"        
+      FontAttributes="Bold"
+      TextColor="Black"
+      PlaceholderColor="Gray"
+      HorizontalTextAlignment="Start" 
+      VerticalOptions="CenterAndExpand"
+      WidthRequest="250" 
+      FontSize="18"
+
+    />
+
+            </Frame>
+            <Label 
+     Text="{Binding EmailError}" 
+     TextColor="Red" 
+     IsVisible="{Binding IsEmailErrorVisible}" 
+     Margin="4,0,0,0"
+   />
+        </StackLayout>
+
+        <StackLayout 
+    Orientation="Vertical" 
+    Spacing="10"
+    Margin="5">
+
+            <Label 
+    Text="{Binding MobileNoLabelText}"
+    TextColor="Black" 
+    FontAttributes="Bold" 
+    FontSize="15" 
+    FontFamily="arvana"
+   />
+
+            <Frame
+    BackgroundColor="LightGray" 
+    BorderColor="LightGray" 
+    CornerRadius="20" 
+    WidthRequest="300"
+    HeightRequest="45"
+    Padding="-10"
+    HorizontalOptions="CenterAndExpand" >
+
+                <Entry
+      x:Name="MobileNumberEntry"
+      Text="{Binding MobileNumber}"
+      Placeholder="{Binding MobileNoPlaceholder}"            
+      TextColor="Black"
+      FontAttributes="Bold"
+      PlaceholderColor="Gray"
+      HorizontalTextAlignment="Start" 
+      VerticalOptions="CenterAndExpand"
+      Keyboard="Numeric" 
+      WidthRequest="250"
+      FontSize="18"
+
+    />
+            </Frame>
+
+            <Label 
+    Text="{Binding MobileNumberError}" 
+    TextColor="Red" 
+    IsVisible="{Binding IsMobileNumberErrorVisible}"
+    Margin="4,0,0,0"
+   />
+        </StackLayout>
+
+        <StackLayout
+    Orientation="Vertical"
+    Spacing="10" 
+    Margin="5">
+
+            <Label 
+    Text="{Binding PasswordLabelText}"
+    TextColor="Black"
+    FontAttributes="Bold"
+    FontSize="15" 
+    FontFamily="arvana"
+  />
+
+            <Frame
+    BackgroundColor="LightGray"
+    BorderColor="LightGray"
+    CornerRadius="20"
+    WidthRequest="300"
+    HeightRequest="45"
+    Padding="-10"
+    HorizontalOptions="CenterAndExpand" >
+
+                <Entry        
+     Text="{Binding Password}"
+     Placeholder="{Binding PasswordPlaceholder}"         
+     TextColor="Black"
+     FontAttributes="Bold"
+     PlaceholderColor="Gray"
+     HorizontalTextAlignment="Start" 
+     VerticalOptions="CenterAndExpand" 
+     IsPassword="True" 
+     WidthRequest="250"
+     FontSize="18"
+   />
+
+            </Frame>
+            <Label 
+   Text="{Binding PasswordError}" 
+   FontSize="15"
+   TextColor="Red" 
+   IsVisible="{Binding IsPasswordErrorVisible}"
+   Margin="4,0,0,0"
+  />
+        </StackLayout>
+
+        <Button
+   Text="{Binding RegisterButtonText}" 
+   TextColor="White" 
+   FontAttributes="Bold" 
+   BackgroundColor="#1e90ff"
+   CornerRadius="20" 
+   Margin="10"
+   WidthRequest="300"
+   Command="{Binding RegisterCommand}"
+ />
+
+        <StackLayout 
+   Orientation="Horizontal"
+   HorizontalOptions="Center" 
+   Spacing="9">
+
+            <Label
+   Text="BY You Agree" 
+   TextColor="Black"
+  />
+
+            <Label
+   Text="Term and Condition" 
+   TextColor="Red"
+  />
+
+        </StackLayout>
+
+        <StackLayout
+   Orientation="Horizontal" 
+   VerticalOptions="EndAndExpand" 
+   HorizontalOptions="Center">
+
+            <Label
+   Text="Already have an account?" 
+   TextColor="Black" 
+   Margin="4"
+  />
+
+            <Button 
+   Text="{Binding LoginButtonText}"
+   TextColor="Red"
+   BackgroundColor="Transparent"
+   BorderColor="Transparent" 
+   HeightRequest="30" 
+   Padding="1"
+   FontAttributes="Bold" 
+   Command="{Binding LoginCommand}"
+   VerticalOptions="StartAndExpand"
+  />
+
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

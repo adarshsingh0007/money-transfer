@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MoneyTransferApp.View.TransferMoneyPage"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:converters="clr-namespace:MoneyTransferApp.Converters"
+             BackgroundColor="White"
+             Title="TransferMoneyPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:CardNumberFormatterConverter x:Key="CardNumberFormatter" />
+        </ResourceDictionary>
+        
+    </ContentPage.Resources>
+    <StackLayout >
+        
+        <StackLayout Orientation="Horizontal" 
+                     Spacing="3" 
+                     WidthRequest="330"
+                     Margin="20">
+            <ImageButton Source="backbutton.png" 
+                         HeightRequest="30"
+                         WidthRequest="30"
+                          Margin="-2"/>
+            
+            <Label Text="Transfer Money"
+                   TextColor="Black" 
+                   FontSize="22" 
+                   FontAttributes="Bold"
+                   FontFamily="Arvana"
+                   Margin="2"/>
+        </StackLayout>
+        <Frame BackgroundColor="Black"
+               HeightRequest="210"
+               WidthRequest="330"
+               HasShadow="True"
+               CornerRadius="10"
+               Padding="3">
+
+          <StackLayout Orientation="Vertical" HeightRequest="180" WidthRequest="302" >
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal" Margin="10" Spacing="2">
+                        <Label Text="$" 
+                  TextColor="White"
+                  HorizontalOptions="Start" 
+                 />
+
+                        <Label Text="{Binding LatestPayment.Price}"
+                  TextColor="White"
+                  HorizontalOptions="Start"
+                
+                 />
+                    </StackLayout>
+
+                    <Image Source="vissalogo.jpg" 
+                   Aspect="AspectFit"
+                   WidthRequest="50"
+                   HeightRequest="50" 
+                   HorizontalOptions="EndAndExpand"
+                   Margin="-2"/>
+                </StackLayout>
+                <Label Text="{Binding LatestPayment.CardNumber, Converter={StaticResource CardNumberFormatter}}"
+                   TextColor="White" 
+                   HorizontalOptions="Start"
+                   VerticalOptions="CenterAndExpand" Margin="10"/>
+
+                <StackLayout 
+                   Orientation="Horizontal"
+                   Margin="10"
+                   VerticalOptions="EndAndExpand">
+
+                    <Label Text="{Binding LatestPayment.ExpiryDate}" 
+                   TextColor="White" 
+                   HorizontalOptions="Start"
+                   VerticalOptions="EndAndExpand"/>
+
+                    <Label Text="{Binding LatestPayment.CardholderName}"
+                   TextColor="White" FontAttributes="Bold"
+                   HorizontalOptions="EndAndExpand"
+                   VerticalOptions="EndAndExpand"
+           />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+     
+
+       <Frame  BackgroundColor="White" 
+               BorderColor="LightGray"
+               CornerRadius="20"
+               WidthRequest="330"
+               HeightRequest="250"
+               Margin="20"
+               Padding="-10"
+               HasShadow="True">
+           
+        <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal" WidthRequest="300" >
+                    <Frame
+                       WidthRequest="80"
+                       HeightRequest="80"
+                       CornerRadius="25"
+                       BorderColor="White"
+                       BackgroundColor="White"
+                       HasShadow="True"
+                        Margin="12"
+                        >
+
+                      <Image
+                          Source="profileicon4.jpeg"
+                          WidthRequest="87"
+                          HeightRequest="87"
+                          Aspect="AspectFill"/>
+                    </Frame>
+
+                    <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand" WidthRequest="250" Margin="10" >
+                        
+                        <Picker 
+                                SelectedItem="{Binding SelectedUser}"
+                                ItemsSource="{Binding UserNames}" 
+                                ItemDisplayBinding="{Binding UserName}" 
+                                TextColor="Black"
+                                FontAttributes="Bold"
+                                WidthRequest="90"
+                                FontSize="18"
+                               
+                                />
+
+                        <Entry Placeholder="Enter Amount" 
+                               Text="{Binding Amount}"             
+                               FontAttributes="Bold"
+                               PlaceholderColor="Gray"
+                               TextColor="Black"
+                               HorizontalTextAlignment="Start" 
+                                
+                               WidthRequest="100" 
+                               FontSize="14" 
+                               Keyboard="Numeric"
+                        />
+                    </StackLayout>
+                </StackLayout>
+              
+                <Image Source="divider.png"
+                       WidthRequest="325"
+                       Aspect="AspectFill" 
+                       HeightRequest="1" 
+                      VerticalOptions="CenterAndExpand"
+                       Margin="5"/>
+
+          <StackLayout Orientation="Horizontal" WidthRequest="320">
+            <Entry     Placeholder="Type Message" 
+                       Text="{Binding Message}"    
+                       FontAttributes="Bold"
+                       PlaceholderColor="Gray"
+                       TextColor="Black"
+                       FontFamily="Arvana"
+                       HorizontalTextAlignment="Start" 
+                       VerticalOptions="CenterAndExpand" 
+                       WidthRequest="170" 
+                       FontSize="14"
+           />
+              
+          
+               
+              <Picker   Title="Select Category" 
+                        SelectedItem="{Binding SelectedCategory}"
+                        ItemsSource="{Binding TransactionCategories}"
+                        ItemDisplayBinding="{Binding CategoryName}"
+                        TextColor="Black"/>
+
+                      
+           
+          </StackLayout>
+                
+
+                
+                <Button Text="Transfer" 
+                        Command="{Binding TransferCommand}"
+                        BackgroundColor="#1e90ff"
+                        TextColor="White"                       
+                        FontFamily="Arvana"
+                        HeightRequest="65"
+                        VerticalOptions="EndAndExpand"
+                        FontSize="19"
+                        />
+            </StackLayout>
+            
+        </Frame>
+       
+
+        
+       
+    </StackLayout>
+</ContentPage>

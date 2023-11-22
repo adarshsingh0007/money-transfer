@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "682341044722",
+    "project_id": "moneytransferapp-4fdc2",
+    "storage_bucket": "moneytransferapp-4fdc2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682341044722:android:6cb6c30f3211be63981b6b",
+        "android_client_info": {
+          "package_name": "com.mycompany.MoneyTransferApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "682341044722-pikpc0ep82hu3b431fnncb1cubcuotd5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.MoneyTransferApp",
+            "certificate_hash": "bfa938f753f8801ef52be2ad7f462358edc1fd9c"
+          }
+        },
+        {
+          "client_id": "682341044722-167vkhe27dk4o6hr2aol0li0ohefmstv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1_Q0pDNbqwpIlFdMNurjc8nx7oC1jGJg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "682341044722-167vkhe27dk4o6hr2aol0li0ohefmstv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MoneyTransferApp.View.PaymentDetailPage"
+             NavigationPage.HasNavigationBar="False"
+            BackgroundImageSource="paymentbacktheme.jpeg"
+             Title="PaymentDetailPage">
+    
+    <StackLayout Spacing="12" Margin="15">
+        <Label Text="{Binding HeaderText}"
+               TextColor="White"
+               FontSize="29"
+               FontAttributes="Bold"
+               FontFamily="Arvana"
+               HorizontalTextAlignment="Center"/>
+
+        <Label Text="{Binding CardholderNameLabelText}"
+               TextColor="Black"
+               FontAttributes="Bold" 
+               FontFamily="Arvana" 
+               FontSize="20"/>
+
+        <Frame BackgroundColor="White" 
+               BorderColor="LightGray"
+               CornerRadius="20"
+               WidthRequest="300"
+               HeightRequest="45"
+               Padding="-10"
+               HasShadow="True">
+
+         <Entry x:Name="NameEntry"
+                Placeholder="{Binding CardholderPlaceholderText}"
+                Text="{Binding CardholderName}"
+                FontAttributes="Bold"
+                PlaceholderColor="Gray"
+                TextColor="Black"
+                HorizontalTextAlignment="Start" 
+                VerticalOptions="CenterAndExpand" 
+                WidthRequest="235" 
+                FontSize="18"
+         />
+        </Frame>
+        <Label 
+              Text="{Binding NameError}" 
+              TextColor="Red" 
+              IsVisible="{Binding IsNameErrorVisible}" />
+
+
+        <Label Text="{Binding PriceLabelText}"
+               TextColor="Black"
+               FontAttributes="Bold" 
+               FontFamily="Arvana" 
+               FontSize="20"/>
+
+       <Frame  BackgroundColor="White"
+               BorderColor="LightGray"
+               CornerRadius="20"
+               WidthRequest="300"
+               HeightRequest="45"
+               Padding="-10"
+               HasShadow="True">
+            
+        <Entry Placeholder="{Binding PricePlaceholderText}" 
+               x:Name="PriceEntry"
+               Text="{Binding Price}"
+               FontAttributes="Bold"
+               PlaceholderColor="Gray"
+               TextColor="Black"
+               HorizontalTextAlignment="Start" 
+               VerticalOptions="CenterAndExpand" 
+               WidthRequest="235" 
+               FontSize="18"/>
+        </Frame>
+        <Label 
+              Text="{Binding PriceError}" 
+              TextColor="Red" 
+              IsVisible="{Binding IsPriceErrorVisible}" />
+
+
+        <Label Text="{Binding ExpiryDateLabelText}"
+               TextColor="Black"
+               FontAttributes="Bold" 
+               FontFamily="Arvana" 
+               FontSize="20"/>
+
+      <Frame   BackgroundColor="White" 
+               BorderColor="LightGray"
+               CornerRadius="20"
+               WidthRequest="300"
+               HeightRequest="45"
+               Padding="-10"
+               HasShadow="True">
+
+        <Entry Placeholder="MM/YY"
+           x:Name="ExpiryDateEntry"
+           Text="{Binding ExpiryDate}"
+           FontAttributes="Bold"
+           PlaceholderColor="Gray"
+           TextColor="Black"
+           HorizontalTextAlignment="Start" 
+           VerticalOptions="CenterAndExpand" 
+           WidthRequest="235" 
+           FontSize="18"/>
+        </Frame>
+        
+      <Label 
+              Text="{Binding ExpiryDateError}" 
+              TextColor="Red" 
+              IsVisible="{Binding IsExpiryDateErrorVisible}" />
+
+       <Label Text="{Binding CardNumberLabelText}"
+              TextColor="Black"
+              FontAttributes="Bold" 
+              FontFamily="Arvana" 
+              FontSize="20"
+              />
+
+      <Frame  BackgroundColor="White" 
+              BorderColor="LightGray"
+              CornerRadius="20"
+              WidthRequest="300"
+              HeightRequest="45"
+              Padding="-10"
+              HasShadow="True">
+            
+       <Entry Placeholder="{Binding CardNumberPlaceholderText}"
+              Text="{Binding CardNumber}"
+              x:Name="CardNumberEntry"
+              FontAttributes="Bold"
+              PlaceholderColor="Gray"
+              TextColor="Black"
+              HorizontalTextAlignment="Start" 
+              VerticalOptions="CenterAndExpand" 
+              WidthRequest="235" 
+              FontSize="18"
+              Keyboard="Numeric"
+       />
+      </Frame>
+        <Label 
+              Text="{Binding CardNumberError}" 
+              TextColor="Red" 
+              IsVisible="{Binding IsCardNumberErrorVisible}" />
+
+
+        <Button Text="{Binding SaveButtonText}" 
+                Command="{Binding SaveCommand}"
+                BackgroundColor="Green"
+                CornerRadius="20"
+                HeightRequest="45"
+                FontSize="18"
+                Margin="5"
+                WidthRequest="150"
+                FontAttributes="Bold"
+                FontFamily="Arvana"
+                TextColor="White"
+                />
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MoneyTransferApp.View.TransactionSuccessNotifiPage"
+               NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Azure"
+             Title="TransactionSuccessNotifiPage">
+    <StackLayout VerticalOptions="EndAndExpand">
+
+        <Image Source="success.png" 
+               HorizontalOptions="Center"
+               WidthRequest="140" 
+               HeightRequest="140"
+               Aspect="AspectFill"/>
+        
+        <Label Text="Success" 
+               HorizontalTextAlignment="Center"
+               TextColor="Black"
+               FontSize="25"
+               FontAttributes="Bold"
+               Margin="5"
+               FontFamily="Arvana"/>
+        
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="CenterAndExpand"
+                     Spacing="5">
+
+            <Label Text="$" 
+                   TextColor="#a9a9a9"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"/>
+            
+            <Label Text="{Binding Amount}" 
+                   TextColor="#a9a9a9"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"/>
+
+            <Label Text="to" 
+                   TextColor="#a9a9a9"             
+                   FontAttributes="Bold"
+                   />
+            
+            <Label Text="{Binding UserName}" 
+                   TextColor="#a9a9a9"
+                   HorizontalTextAlignment="Center"
+                   FontAttributes="Bold"/>
+        </StackLayout>
+        <StackLayout>
+            
+        </StackLayout>
+        <Frame HeightRequest="90" 
+               WidthRequest="300"
+               BackgroundColor="White"
+               HasShadow="True"
+               BorderColor="LightGray"
+               CornerRadius="10" Margin="10">
+            
+            <StackLayout Orientation="Horizontal" >
+                <Image Source="recieptimg.png"
+                       HeightRequest="30"
+                       WidthRequest="30" />
+                
+                <Label Text="Get Reciept"
+                       TextColor="Black"
+                       FontSize="16" 
+                       Margin="5"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold"
+                       FontFamily="Arvana"/>
+
+                <Image Source="check.png" 
+                       HorizontalOptions="EndAndExpand"
+                       VerticalOptions="Center"
+                       HeightRequest="20"
+                       WidthRequest="20" 
+                       Aspect="AspectFill"/>
+            </StackLayout>
+               
+        
+        </Frame>
+
+        <!-- BoxView 2 -->
+        <Frame HeightRequest="90" 
+               WidthRequest="300"
+               BackgroundColor="White"
+               HasShadow="True"
+               BorderColor="LightGray"
+               CornerRadius="10"
+               Margin="10">
+
+            <StackLayout Orientation="Horizontal">
+                <Image Source="email.png" 
+                       HeightRequest="30" 
+                       WidthRequest="30" />
+                
+                <Label Text="Send By Email" 
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontFamily="Arvana"
+                       FontSize="16" 
+                       Margin="9"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+               
+            </StackLayout>
+        </Frame>
+
+        <!-- BoxView 3 -->
+        <Frame HeightRequest="90" 
+               WidthRequest="300"
+               BackgroundColor="White"
+               HasShadow="True"
+               BorderColor="LightGray" CornerRadius="10" Margin="10">
+
+            <StackLayout Orientation="Horizontal">
+                <Image Source="clocks.png"
+                       HeightRequest="30"
+                       WidthRequest="30" />
+                
+                <Label Text="Regular Payment "
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontFamily="Arvana"
+                       FontSize="16" 
+                       Margin="6" 
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"/>
+               
+            </StackLayout>
+        </Frame>
+
+        <Button Text="{Binding SuccessButton}"
+        TextColor="White"
+        BackgroundColor="#1e90ff"
+        CornerRadius="12"
+        WidthRequest="300"
+        FontAttributes="Bold"
+        FontFamily="Arvana"
+        FontSize="20"
+       
+        Command="{Binding DoneCommand}"/>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MoneyTransferApp.View.UserLoginPage"
+              NavigationPage.HasNavigationBar="False"
+             BackgroundColor="White"
+             Title="UserLoginPage">
+    <StackLayout 
+  HeightRequest="650"
+  WidthRequest="300">
+
+        <Label 
+   Text="{Binding LoginHeaderText}" 
+   TextColor="#1e90ff"
+   FontSize="35" 
+   FontAttributes="Bold"
+   FontFamily="arvana"
+   Margin="5"
+   HorizontalTextAlignment="Start"
+ />
+
+        <StackLayout
+   Orientation="Vertical" 
+   Spacing="10"
+   Margin="5">
+
+            <Label
+   Text="{Binding  EmailLabelText}"
+   TextColor="Black"
+   FontAttributes="Bold"
+   FontSize="15" 
+   FontFamily="arvana"
+  />
+
+            <Frame 
+   BackgroundColor="LightGray"
+   BorderColor="LightGray" 
+   CornerRadius="20" 
+   WidthRequest="300"
+   HeightRequest="45" 
+   Padding="-10" 
+   HorizontalOptions="CenterAndExpand" >
+
+                <Entry  
+    Text="{Binding Email}"
+    Placeholder="{Binding EmailPlaceholder}"        
+    FontAttributes="Bold"
+    TextColor="Black"
+    PlaceholderColor="Gray"
+    HorizontalTextAlignment="Start" 
+    VerticalOptions="CenterAndExpand"
+    WidthRequest="250" 
+    FontSize="18"
+
+   />
+            </Frame>
+
+            <Label 
+   Text="{Binding EmailError}" 
+   TextColor="Red" 
+   IsVisible="{Binding IsEmailErrorVisible}" 
+   Margin="4,0,0,0"
+  />
+        </StackLayout>
+
+        <StackLayout 
+  Orientation="Vertical" 
+  Spacing="10"
+  Margin="5">
+
+            <Label
+   Text="{Binding PasswordLabelText}" 
+   TextColor="Black"
+   FontAttributes="Bold"
+   FontSize="15"
+   FontFamily="arvana"
+  />
+            <Frame
+    BackgroundColor="LightGray" 
+    BorderColor="LightGray"
+    CornerRadius="20" 
+    WidthRequest="300"
+    HeightRequest="45"
+    Padding="-10" 
+    HorizontalOptions="CenterAndExpand" >
+
+                <Entry 
+    Text="{Binding Password}" 
+    Placeholder="{Binding PasswordPlaceholder}"
+    TextColor="Black"
+    PlaceholderColor="Gray" 
+    HorizontalTextAlignment="Start" 
+    VerticalOptions="CenterAndExpand"
+    IsPassword="True" 
+    WidthRequest="250"
+    FontSize="18"
+   />
+            </Frame>
+
+            <Label 
+    Text="{Binding PasswordError}" 
+    FontSize="15"
+    TextColor="Red" 
+    IsVisible="{Binding IsPasswordErrorVisible}"
+    Margin="4,0,0,0"
+  />
+        </StackLayout>
+
+        <Button
+  Text="{Binding LoginButtonText}" 
+  FontAttributes="Bold" 
+  FontFamily="arvana"
+  TextColor="White"
+  BackgroundColor="#1e90ff"
+  BorderColor="#1e90ff" 
+  CornerRadius="20" 
+  Margin="15" 
+  WidthRequest="300"
+  FontSize="16" 
+  Command="{Binding LoginCommand}"
+ />
+        <Button
+           Text="{Binding ForgotPasswordButtonText}"               
+  TextColor="Red"
+  BackgroundColor="Transparent"
+  BorderColor="Transparent" 
+  WidthRequest="120"
+  Padding="1"
+  FontSize="13" 
+  HorizontalOptions="End"
+  
+ />
+
+
+        <StackLayout Orientation="Vertical"
+                 VerticalOptions="EndAndExpand"
+                 HorizontalOptions="Center"
+                 Margin="-14" Spacing="1">
+            <StackLayout 
+            Orientation="Horizontal"
+                     Spacing="1">
+                <Label
+                Text="{Binding AccountLabelText}" 
+                TextColor="Gray"        
+     FontSize="13"        
+     Margin="6"
+    />
+
+                <Button
+     Text="{Binding RegisterButtonText}"               
+     TextColor="Red"
+     BackgroundColor="Transparent"
+     BorderColor="Transparent" 
+     WidthRequest="55"
+     Margin="-7"
+     Padding="1"
+     FontSize="13" 
+     Command="{Binding RegisterCommand}"
+    />
+            </StackLayout>
+
+
+            <Label
+   Text="{Binding TermLabelText}" 
+   TextColor="Red"
+   FontAttributes="Bold"
+   FontSize="13"
+   FontFamily="arvana"
+   Margin="5"
+   HorizontalOptions="CenterAndExpand"
+  />
+
+        </StackLayout>
+
+    </StackLayout>
+</ContentPage>

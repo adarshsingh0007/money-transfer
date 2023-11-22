@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MoneyTransferApp.View.UserDashBoard"
+              NavigationPage.HasNavigationBar="False"
+             xmlns:converters="clr-namespace:MoneyTransferApp.Converters"
+             BackgroundColor="White"
+             Title="UserDashBoard">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:CardNumberFormatterConverter x:Key="CardNumberFormatter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <StackLayout 
+                 HeightRequest="690">
+
+        <Frame BackgroundColor="Black"
+               HeightRequest="200"
+               WidthRequest="330"
+               HasShadow="True"
+               CornerRadius="10"
+               Padding="3">
+
+            <StackLayout Orientation="Vertical" HeightRequest="180" WidthRequest="302" >
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal" Margin="10" Spacing="2">
+                        <Label Text="$" 
+                         TextColor="White"
+                         HorizontalOptions="Start" 
+                        />
+
+                        <Label Text="{Binding LatestPayment.Price}" 
+                         TextColor="White" 
+                         HorizontalOptions="Start" 
+                         IsVisible="{Binding IsTransactionPerformed}" />
+
+                        <Label Text="{Binding UpdatedPrice}" 
+                         TextColor="White" 
+                         HorizontalOptions="Start" 
+                         IsVisible="{Binding IsTransactionPerformed}" />
+                    </StackLayout>
+                    
+                   <Image Source="vissalogo.jpg" 
+                          Aspect="AspectFit"
+                          WidthRequest="50"
+                          HeightRequest="50" 
+                          HorizontalOptions="EndAndExpand"
+                          Margin="-2"/>
+                </StackLayout>
+                <Label Text="{Binding LatestPayment.CardNumber, Converter={StaticResource CardNumberFormatter}}"
+                          TextColor="White" 
+                          HorizontalOptions="Start"
+                          VerticalOptions="CenterAndExpand" Margin="10"/>
+
+               <StackLayout 
+                          Orientation="Horizontal"
+                          Margin="10"
+                          VerticalOptions="EndAndExpand">
+
+                   <Label Text="{Binding LatestPayment.ExpiryDate}" 
+                          TextColor="White" 
+                          HorizontalOptions="Start"
+                          VerticalOptions="EndAndExpand"/>
+
+                   <Label Text="{Binding LatestPayment.CardholderName}"
+                          TextColor="White" FontAttributes="Bold"
+                          HorizontalOptions="EndAndExpand"
+                          VerticalOptions="EndAndExpand"
+                  />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+        <Label Text="Today" 
+               TextColor="Black" 
+               FontSize="20"
+               FontAttributes="Bold"
+               FontFamily="Arvana"
+               Margin="13"/>
+        
+        <ListView 
+            ItemsSource="{Binding Transactions}"
+            HasUnevenRows="True" 
+            WidthRequest="320" 
+            SeparatorVisibility="None">
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout WidthRequest="320" BackgroundColor="Azure" >
+                            <StackLayout Orientation="Horizontal"
+                                         Margin="4"
+                                         >
+                                 
+                                <Image Source="entertainmenticon.png"
+                                       HeightRequest="40" 
+                                       WidthRequest="40" 
+                                       />
+                                
+                                <StackLayout Orientation="Vertical" Spacing="3" Padding="5">
+                                    
+                                    <Label Text="{Binding Message}" 
+                                           TextColor="Black" 
+                                           FontAttributes="Bold"
+                                           FontSize="14"
+                                           FontFamily="Arvana"/>
+                                    
+                                    <StackLayout Orientation="Horizontal" Spacing="5">
+                                        
+                                        <Label Text="{Binding Category}" 
+                                               TextColor="Gray" 
+                                               FontSize="13"
+                                               FontAttributes="Bold"/>
+                                        
+                                        <Label Text="{Binding TransactionTime, StringFormat='{0:HH:mm}'}" 
+                                               TextColor="Gray" 
+                                               FontSize="13"
+                                               FontAttributes="Bold" />
+                                    </StackLayout>
+                                   
+                                   
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                             VerticalOptions="CenterAndExpand"
+                                             HorizontalOptions="EndAndExpand">
+                                    
+                                    <Label Text="$" TextColor="Black" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Amount}" TextColor="Black" FontFamily="Arvana" FontAttributes="Bold"/>
+                                </StackLayout>
+                               
+                               
+
+                               
+                                <!-- Add other transaction details as needed -->
+                            </StackLayout>
+                            
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="{Binding ButtonText}"
+                TextColor="White"
+                BackgroundColor="Green"
+                CornerRadius="20"
+                WidthRequest="180"
+                FontAttributes="Bold"
+                FontFamily="Arvana"
+                FontSize="20"
+                
+                Command="{Binding TransferCommand}"/>
+    </StackLayout>
+
+</ContentPage>
